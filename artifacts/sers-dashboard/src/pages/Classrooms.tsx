@@ -74,7 +74,7 @@ export default function Classrooms() {
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {classrooms?.map((c) => (
+        {(Array.isArray(classrooms) ? classrooms : classrooms?.classrooms || []).map((c) => (
           <Link key={c.id} href={`/classrooms/${c.id}`}>
             <div className="bg-card border border-card-border rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
               <div className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">{c.name}</div>

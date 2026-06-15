@@ -38,7 +38,7 @@ export default function Sessions() {
       )}
 
       <div className="space-y-2">
-        {sessions?.map((s) => (
+        {(Array.isArray(sessions) ? sessions : sessions?.sessions || []).map((s) => (
           <Link key={s.id} href={`/sessions/${s.id}`}>
             <div className="bg-card border border-card-border rounded-lg px-5 py-4 flex items-center justify-between hover:shadow-sm transition-shadow cursor-pointer">
               <div>

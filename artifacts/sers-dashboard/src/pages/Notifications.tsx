@@ -88,7 +88,7 @@ function SendNotificationDialog() {
               <Select onValueChange={(v) => { setClassroomId(Number(v)); setStudentId(null); }}>
                 <SelectTrigger><SelectValue placeholder="Select classroom" /></SelectTrigger>
                 <SelectContent>
-                  {classrooms?.map((c) => (
+                  {(Array.isArray(classrooms) ? classrooms : classrooms?.classrooms || []).map((c) => (
                     <SelectItem key={c.id} value={String(c.id)}>{c.name}</SelectItem>
                   ))}
                 </SelectContent>
@@ -167,7 +167,7 @@ export default function Notifications() {
       )}
 
       <div className="space-y-3">
-        {notifications?.map((n) => (
+        {(Array.isArray(notifications) ? notifications : notifications?.notifications || []).map((n) => (
           <div key={n.id} className="bg-card border border-card-border rounded-xl px-5 py-4">
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">

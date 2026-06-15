@@ -74,7 +74,7 @@ export default function Coaching() {
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {suggestions?.map((s) => (
+        {(Array.isArray(suggestions) ? suggestions : suggestions?.suggestions || []).map((s) => (
           <div key={s.id} className="bg-card border border-card-border rounded-xl p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-3">
               <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-muted text-muted-foreground">

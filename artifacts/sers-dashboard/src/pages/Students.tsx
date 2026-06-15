@@ -113,7 +113,7 @@ export default function Students() {
       )}
 
       <div className="space-y-2">
-        {students?.map((s) => (
+        {(Array.isArray(students) ? students : students?.students || []).map((s) => (
           <div key={s.id} className="bg-card border border-card-border rounded-xl px-5 py-4 flex items-center justify-between">
             <div className="flex-1 min-w-0">
               <div className="font-medium text-sm">{s.name}</div>
